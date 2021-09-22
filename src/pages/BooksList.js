@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const BooksList = () => {
@@ -17,7 +18,13 @@ const BooksList = () => {
       <h1>Books List</h1>
       <ul>
         {books.map(book => {
-          return <li key={book._id}>{book.title}</li>
+          return (
+            <li key={book._id}>
+              <Link to={'/books/' + book._id}>
+                {book.author.name} - {book.title} ({book.year})
+              </Link>
+            </li>
+          )
         })}
       </ul>
     </>
