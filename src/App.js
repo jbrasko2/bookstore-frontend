@@ -5,6 +5,7 @@ import BooksList from './pages/BooksList'
 import AuthorsList from './pages/AuthorsList'
 import AuthorPage from './pages/AuthorPage'
 import BookPage from './pages/BookPage'
+import BookEdit from './pages/BookEdit'
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path='/authors' component={AuthorsList} />
           <Route exact path='/authors/:id' component={AuthorPage} />
           <Route exact path='/books/:id' component={BookPage} />
+          <Route exact path='/books/:id/edit' component={BookEdit} />
         </Switch>
       </>
     )
