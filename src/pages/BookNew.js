@@ -3,7 +3,6 @@ import BookForm from '../components/BookForm'
 import axios from 'axios'
 
 const BookNew = ({ history }) => {
-  console.log('at BookNew')
 
   const submitNew = async ({ title, authorName, year }) => {
     try {
