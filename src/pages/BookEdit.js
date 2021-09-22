@@ -15,7 +15,20 @@ const BookEdit = () => {
     getBook()
   }, [id])
 
-  return <BookForm handleSubmit={submitEdit} />
+  const renderPage = () => {
+    return (
+      <>
+        <h1>Edit {book.title}</h1>
+        <BookForm handleSubmit={submitEdit} book={book} />
+      </>
+    )
+  }
+
+  const renderLoad = () => {
+    return <p>..loading</p>
+  }
+
+  return book ? renderPage() : renderLoad()
 }
 
 const submitEdit = () => {}
