@@ -1,38 +1,42 @@
 import React, { useState } from 'react'
 
-const BookForm = ({ handleSubmit }) => {
+const BookForm = ({ handleSubmit, book }) => {
   const [title, setTitle] = useState('')
   const [authorName, setAuthorName] = useState('')
-  const [year, setYear] = useState(null)
+  const [year, setYear] = useState('')
 
   return (
     <>
       <h1>Book Form</h1>
-      <form onSubmit={() => handleSubmit({ title, authorName, year})}>
+      <form onSubmit={() => handleSubmit({ title, authorName, year })}>
         <label htmlFor='title'>Title: </label>
         <input
           type='text'
           id='title'
           name='title'
+          placeholder={book.title}
           value={title}
-          onChange={setTitle}
+          onChange={e => setTitle(e.target.value)}
         />
         <label htmlFor='authorName'>Author: </label>
         <input
           type='text'
           id='authorName'
           name='authorName'
+          placeholder={book.author.name}
           value={authorName}
-          onChange={setAuthorName}
+          onChange={e => setAuthorName(e.target.value)}
         />
         <label htmlFor='year'>Year: </label>
         <input
           type='text'
           id='year'
           name='year'
+          placeholder={book.year}
           value={year}
-          onChange={setYear}
+          onChange={e => setYear(e.target.value)}
         />
+        <input type='submit' value='Submit' />
       </form>
     </>
   )
