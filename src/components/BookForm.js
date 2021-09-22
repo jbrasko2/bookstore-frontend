@@ -12,7 +12,6 @@ const BookForm = ({ handleSubmit, book }) => {
 
   return (
     <>
-      <h1>Book Form</h1>
       <form onSubmit={onSubmit}>
         <label htmlFor='title'>Title: </label>
         <input
