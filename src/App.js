@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../pages/Home'
-import BooksList from '../pages/BooksList'
-import AuthorsList from '../pages/AuthorsList'
+import Home from './pages/Home'
+import BooksList from './pages/BooksList'
+import AuthorsList from './pages/AuthorsList'
 
 class App extends Component {
   render() {
