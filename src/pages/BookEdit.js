@@ -28,9 +28,20 @@ const BookEdit = () => {
     return <p>..loading</p>
   }
 
+  const submitEdit = async ({ title, authorName, year }) => {
+    try {
+      const response = await axios.patch(`http://localhost:3000/books/${id}`, {
+        title,
+        authorName,
+        year,
+      })
+      console.log('Returned Data:', response)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return book ? renderPage() : renderLoad()
 }
-
-const submitEdit = () => {}
 
 export default BookEdit

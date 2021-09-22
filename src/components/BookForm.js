@@ -5,10 +5,15 @@ const BookForm = ({ handleSubmit, book }) => {
   const [authorName, setAuthorName] = useState('')
   const [year, setYear] = useState('')
 
+  const onSubmit = event => {
+    event.preventDefault()
+    handleSubmit({ title, authorName, year })
+  }
+
   return (
     <>
       <h1>Book Form</h1>
-      <form onSubmit={() => handleSubmit({ title, authorName, year })}>
+      <form onSubmit={onSubmit}>
         <label htmlFor='title'>Title: </label>
         <input
           type='text'
