@@ -28,6 +28,7 @@ const BooksList = () => {
           )
         })}
       </ul>
+      <Link to={'/books/new'}>Create New Book</Link>
     </>
   )
 }
