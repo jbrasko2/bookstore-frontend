@@ -11,7 +11,6 @@ const AuthorPage = () => {
     const getAuthor = async () => {
       const result = await axios(`http://localhost:3000/authors/${id}`)
       setAuthor(result.data)
-      console.log(result.data)
     }
     getAuthor()
   }, [id])
