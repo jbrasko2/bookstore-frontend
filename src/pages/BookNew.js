@@ -2,7 +2,7 @@ import React from 'react'
 import BookForm from '../components/BookForm'
 import axios from 'axios'
 
-const BookNew = () => {
+const BookNew = ({ history }) => {
   console.log('at BookNew')
 
   const submitNew = async ({ title, authorName, year }) => {
@@ -13,6 +13,7 @@ const BookNew = () => {
         year,
       })
       console.log('Returned Data:', response)
+      history.goBack()
     } catch (err) {
       console.log(err)
     }

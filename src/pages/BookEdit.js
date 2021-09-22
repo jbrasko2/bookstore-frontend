@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import BookForm from '../components/BookForm'
 import axios from 'axios'
 
-const BookEdit = () => {
+const BookEdit = ({ history }) => {
   const [book, setBook] = useState(null)
   const { id } = useParams()
 
@@ -36,6 +36,7 @@ const BookEdit = () => {
         year,
       })
       console.log('Returned Data:', response)
+      history.goBack()
     } catch (err) {
       console.log(err)
     }
