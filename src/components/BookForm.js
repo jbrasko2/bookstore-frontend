@@ -18,6 +18,7 @@ const BookForm = ({ handleSubmit, book }) => {
           type='text'
           id='title'
           name='title'
+          autoComplete='off'
           placeholder={book ? book.title : null}
           value={title}
           onChange={e => setTitle(e.target.value)}
@@ -27,6 +28,7 @@ const BookForm = ({ handleSubmit, book }) => {
           type='text'
           id='authorName'
           name='authorName'
+          autoComplete='off'
           placeholder={book ? book.author.name : null}
           value={authorName}
           onChange={e => setAuthorName(e.target.value)}
@@ -36,6 +38,7 @@ const BookForm = ({ handleSubmit, book }) => {
           type='text'
           id='year'
           name='year'
+          autoComplete='off'
           placeholder={book ? book.year : null}
           value={year}
           onChange={e => setYear(e.target.value)}
