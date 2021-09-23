@@ -28,7 +28,7 @@ const AuthorPage = ({ history }) => {
               return (
                 <li key={book._id}>
                   <Link to={'/books/' + book._id}>
-                    {book.title} ({book.year})
+                    <i>{book.title}</i> ({book.year})
                   </Link>
                 </li>
               )

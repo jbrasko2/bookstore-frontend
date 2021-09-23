@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import styled from 'styled-components'
 
 const BookPage = ({ history }) => {
   const [book, setBook] = useState(null)
@@ -17,8 +18,8 @@ const BookPage = ({ history }) => {
 
   const renderPage = () => {
     return (
-      <>
-        <h1>{book.title}</h1>
+      <Wrapper>
+        <h1><i>{book.title}</i></h1>
         <h3>
           Author:{' '}
           <Link to={`/authors/${book.author._id}`}>{book.author.name}</Link>
@@ -28,7 +29,7 @@ const BookPage = ({ history }) => {
         <Link to={`/books/${id}/edit`}>
           <button>Edit</button>
         </Link>
-      </>
+      </Wrapper>
     )
   }
 
@@ -38,5 +39,9 @@ const BookPage = ({ history }) => {
 
   return book ? renderPage() : renderLoad()
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`
 
 export default BookPage
