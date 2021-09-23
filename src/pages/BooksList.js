@@ -31,7 +31,7 @@ const BooksList = () => {
         data.filter(
           book =>
             book.title.toUpperCase().includes(query.toUpperCase()) ||
-            book.year.toString() === query ||
+            book.year.toString().includes(query) ||
             book.author.name.toUpperCase().includes(query.toUpperCase())
         )
       )
