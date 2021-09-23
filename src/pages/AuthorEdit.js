@@ -15,19 +15,6 @@ const AuthorEdit = ({ history }) => {
     getAuthor()
   }, [id])
 
-  const renderPage = () => {
-    return (
-      <>
-        <h1>Edit {author.name}</h1>
-        <AuthorForm handleSubmit={submitEdit} author={author} />
-      </>
-    )
-  }
-
-  const renderLoad = () => {
-    return <p>..loading</p>
-  }
-
   const submitEdit = async ({ name, dob }) => {
     try {
       const response = await axios.patch(
@@ -42,6 +29,19 @@ const AuthorEdit = ({ history }) => {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const renderPage = () => {
+    return (
+      <>
+        <h1>Edit {author.name}</h1>
+        <AuthorForm handleSubmit={submitEdit} author={author} />
+      </>
+    )
+  }
+
+  const renderLoad = () => {
+    return <p>..loading</p>
   }
 
   return author ? renderPage() : renderLoad()

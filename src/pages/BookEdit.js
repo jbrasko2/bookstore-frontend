@@ -15,19 +15,6 @@ const BookEdit = ({ history }) => {
     getBook()
   }, [id])
 
-  const renderPage = () => {
-    return (
-      <>
-        <h1>Edit {book.title}</h1>
-        <BookForm handleSubmit={submitEdit} book={book} />
-      </>
-    )
-  }
-
-  const renderLoad = () => {
-    return <p>..loading</p>
-  }
-
   const submitEdit = async ({ title, authorName, year }) => {
     try {
       const response = await axios.patch(`http://localhost:3000/books/${id}`, {
@@ -40,6 +27,19 @@ const BookEdit = ({ history }) => {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const renderPage = () => {
+    return (
+      <>
+        <h1>Edit {book.title}</h1>
+        <BookForm handleSubmit={submitEdit} book={book} />
+      </>
+    )
+  }
+
+  const renderLoad = () => {
+    return <p>..loading</p>
   }
 
   return book ? renderPage() : renderLoad()
