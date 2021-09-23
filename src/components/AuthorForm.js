@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const AuthorForm = ({ handleSubmit, author }) => {
   const [name, setName] = useState('')
   const [dob, setDob] = useState('')
+  const date = new Date()
 
   const onSubmit = event => {
     event.preventDefault()
@@ -12,7 +13,7 @@ const AuthorForm = ({ handleSubmit, author }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <label htmlFor='title'>Title: </label>
+        <label htmlFor='name'>Name: </label>
         <input
           type='text'
           id='name'
@@ -22,13 +23,13 @@ const AuthorForm = ({ handleSubmit, author }) => {
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <label htmlFor='dob'>Author: </label>
+        <label htmlFor='dob'>Date of Birth: </label>
         <input
           type='text'
           id='dob'
           name='dob'
           autoComplete='off'
-          placeholder={`e.g. ${Date.toISOString().split('T')[0]}`}
+          placeholder={`e.g. ${date.toISOString().split('T')[0]}`}
           value={dob}
           onChange={e => setDob(e.target.value)}
         />
