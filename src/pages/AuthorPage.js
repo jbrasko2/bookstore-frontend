@@ -19,6 +19,7 @@ const AuthorPage = () => {
     return (
       <div>
         <h1>{author.name}</h1>
+        <h4>Date of Birth: {author.dob.split('T')[0]}</h4>
         <ul>
           {author.books.map(book => {
             return (
