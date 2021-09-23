@@ -57,7 +57,7 @@ const AuthorsList = () => {
           )
         })}
       </ul>
-      <Link to={'/authors/new'}>Create New Author</Link>
+      <Link to={'/authors/new'}><button>Create New Author</button></Link>
       <br />
       <Link to='/'>
         <button>Home</button>
