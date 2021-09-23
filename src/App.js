@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import BooksList from './pages/BooksList'
 import AuthorsList from './pages/AuthorsList'
 import AuthorPage from './pages/AuthorPage'
+import AuthorNew from './pages/AuthorNew'
+import AuthorEdit from './pages/AuthorEdit'
 import BookPage from './pages/BookPage'
 import BookNew from './pages/BookNew'
 import BookEdit from './pages/BookEdit'
@@ -16,7 +18,9 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/books' component={BooksList} />
           <Route exact path='/authors' component={AuthorsList} />
+          <Route exact path='/authors/new' component={AuthorNew} />
           <Route exact path='/authors/:id' component={AuthorPage} />
+          <Route exact patch='authors/:id/edit' component={AuthorEdit} />
           <Route exact path='/books/new' component={BookNew} />
           <Route exact path='/books/:id' component={BookPage} />
           <Route exact path='/books/:id/edit' component={BookEdit} />
