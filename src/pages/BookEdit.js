@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BookForm from '../components/BookForm'
 import axios from 'axios'
 
@@ -34,6 +35,8 @@ const BookEdit = ({ history }) => {
       <>
         <h1>Edit {book.title}</h1>
         <BookForm handleSubmit={submitEdit} book={book} />
+        <br />
+        <button onClick={history.goBack}>Back</button>
       </>
     )
   }

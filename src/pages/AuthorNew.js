@@ -1,9 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import AuthorForm from '../components/AuthorForm'
 import axios from 'axios'
 
 const AuthorNew = ({ history }) => {
-
   const submitNew = async ({ name, dob }) => {
     try {
       const response = await axios.post(`http://localhost:3000/authors`, {
@@ -21,6 +21,8 @@ const AuthorNew = ({ history }) => {
     <>
       <h1>Create New Author</h1>
       <AuthorForm handleSubmit={submitNew} />
+      <br />
+      <button onClick={history.goBack}>Back</button>
     </>
   )
 }

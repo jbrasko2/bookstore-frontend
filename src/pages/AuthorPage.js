@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const AuthorPage = () => {
+const AuthorPage = ({ history }) => {
   const [author, setAuthor] = useState(null)
   const { id } = useParams()
 
@@ -17,7 +17,7 @@ const AuthorPage = () => {
 
   const renderPage = () => {
     return (
-      <div>
+      <>
         <h1>{author.name}</h1>
         <h4>Date of Birth: {author.dob.split('T')[0]}</h4>
         <ul>
@@ -31,7 +31,8 @@ const AuthorPage = () => {
             )
           })}
         </ul>
-      </div>
+        <button onClick={history.goBack}>Back</button>
+      </>
     )
   }
 
