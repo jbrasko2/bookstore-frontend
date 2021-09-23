@@ -1,0 +1,11 @@
+a {
+  color: rgb(20, 85, 48);
+}
+
+a:hover {
+  color: rgb(51, 155, 96);
+}
+
+h1, h2, h3, h4 {
+  color: rgb(20, 85, 48);
+}
