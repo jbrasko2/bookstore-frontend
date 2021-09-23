@@ -47,7 +47,7 @@ const BooksList = () => {
           return (
             <li key={book._id}>
               <Link to={`/books/${book._id}`}>
-                {book.author.name} - {book.title} ({book.year})
+              <i>{book.title}</i> by {book.author.name} ({book.year})
               </Link>
               <Link to={`/books/${book._id}/edit`}>
                 <button>Edit</button>
