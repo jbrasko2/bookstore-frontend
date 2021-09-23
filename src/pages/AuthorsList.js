@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import SearchBar from '../components/SearchBar'
+import styled from 'styled-components'
 
 const AuthorsList = () => {
   const [authors, setAuthors] = useState([])
@@ -38,26 +39,37 @@ const AuthorsList = () => {
   }
 
   return (
-    <>
+    <Wrapper>
       <h1>Authors List</h1>
       <SearchBar handleSubmit={searchAuthors} />
-      <ul>
-        {authors.map(author => {
-          return (
-            <li key={author._id}>
-              <Link to={'/authors/' + author._id}>
-                {author.name}, (born {author.dob.split('T')[0]}) - {author.books.length}{' '}
-                {author.books.length === 1 ? 'book' : 'books'}
-              </Link>
-              <Link to={`/authors/${author._id}/edit`}>
-                <button>Edit</button>
-              </Link>
-              <button onClick={() => deleteAuthor(author._id)}>Delete</button>
-            </li>
-          )
-        })}
-      </ul>
-      <Link to={'/authors/new'}><button>Create New Author</button></Link>
+      <ListWrapper>
+        <ul>
+          {authors.map(author => {
+            return (
+              <ListItem key={author._id}>
+                <div>
+                  <Link to={'/authors/' + author._id}>
+                    {author.name}, (born {author.dob.split('T')[0]}) -{' '}
+                    {author.books.length}{' '}
+                    {author.books.length === 1 ? 'book' : 'books'}
+                  </Link>
+                </div>
+                <div>
+                  <Link to={`/authors/${author._id}/edit`}>
+                    <button>Edit</button>
+                  </Link>
+                  <button onClick={() => deleteAuthor(author._id)}>
+                    Delete
+                  </button>
+                </div>
+              </ListItem>
+            )
+          })}
+        </ul>
+      </ListWrapper>
+      <Link to={'/authors/new'}>
+        <button>Create New Author</button>
+      </Link>
       <br />
       <Link to='/'>
         <button>Home</button>
@@ -65,8 +77,23 @@ const AuthorsList = () => {
       <Link to='/books'>
         <button>Books List</button>
       </Link>
-    </>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`
+
+const ListWrapper = styled.div`
+  margin: 0 auto;
+  width: 600px;
+`
+
+const ListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 export default AuthorsList
