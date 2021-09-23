@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import AuthorForm from '../components/AuthorForm'
 import axios from 'axios'
+import styled from 'styled-components'
 
 const AuthorEdit = ({ history }) => {
   const [author, setAuthor] = useState(null)
@@ -33,12 +34,12 @@ const AuthorEdit = ({ history }) => {
 
   const renderPage = () => {
     return (
-      <>
+      <Wrapper>
         <h1>Edit {author.name}</h1>
         <AuthorForm handleSubmit={submitEdit} author={author} />
         <br />
         <button onClick={history.goBack}>Back</button>
-      </>
+      </Wrapper>
     )
   }
 
@@ -48,5 +49,9 @@ const AuthorEdit = ({ history }) => {
 
   return author ? renderPage() : renderLoad()
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`
 
 export default AuthorEdit
