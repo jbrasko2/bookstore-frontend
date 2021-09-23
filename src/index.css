@@ -9,3 +9,7 @@ a:hover {
 h1, h2, h3, h4 {
   color: rgb(20, 85, 48);
 }
+
+button {
+  margin: 6px 12px;
+}
