@@ -19,10 +19,15 @@ const BookPage = ({ history }) => {
     return (
       <>
         <h1>{book.title}</h1>
-        <h3>Author: {book.author.name}</h3>
+        <h3>
+          Author:{' '}
+          <Link to={`/authors/${book.author._id}`}>{book.author.name}</Link>
+        </h3>
         <h3>Published: {book.year}</h3>
         <button onClick={history.goBack}>Back</button>
-        <Link to={`/books/${id}/edit`}><button>Edit</button></Link>
+        <Link to={`/books/${id}/edit`}>
+          <button>Edit</button>
+        </Link>
       </>
     )
   }
