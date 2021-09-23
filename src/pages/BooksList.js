@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import SearchBar from '../components/SearchBar'
 
 const BooksList = () => {
   const [books, setBooks] = useState([])
@@ -22,9 +23,25 @@ const BooksList = () => {
     }
   }
 
+  const searchBooks = query => {
+    fetch('http://localhost:3000/books')
+      .then(res => res.json())
+      .then(data =>
+        data.filter(
+          book =>
+            book.title.toUpperCase().includes(query.toUpperCase()) ||
+            book.year.toString() === query ||
+            book.author.name.toUpperCase().includes(query.toUpperCase())
+        )
+      )
+      .then(bookData => setBooks(bookData))
+      .catch(err => console.log(err))
+  }
+
   return (
     <>
       <h1>Books List</h1>
+      <SearchBar handleSubmit={searchBooks} />
       <ul>
         {books.map(book => {
           return (
@@ -41,9 +58,13 @@ const BooksList = () => {
         })}
       </ul>
       <Link to={'/books/new'}>Create New Book</Link>
-      <br/>
-      <Link to='/'><button>Home</button></Link>
-      <Link to='/authors'><button>Authors List</button></Link>
+      <br />
+      <Link to='/'>
+        <button>Home</button>
+      </Link>
+      <Link to='/authors'>
+        <button>Authors List</button>
+      </Link>
     </>
   )
 }
