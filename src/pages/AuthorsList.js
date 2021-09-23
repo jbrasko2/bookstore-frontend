@@ -46,8 +46,8 @@ const AuthorsList = () => {
           return (
             <li key={author._id}>
               <Link to={'/authors/' + author._id}>
-                {author.name} ({author.books.length}{' '}
-                {author.books.length === 1 ? 'book' : 'books'})
+                {author.name}, (born {author.dob.split('T')[0]}) - {author.books.length}{' '}
+                {author.books.length === 1 ? 'book' : 'books'}
               </Link>
               <Link to={`/authors/${author._id}/edit`}>
                 <button>Edit</button>
