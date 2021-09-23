@@ -20,7 +20,7 @@ class App extends Component {
           <Route exact path='/authors' component={AuthorsList} />
           <Route exact path='/authors/new' component={AuthorNew} />
           <Route exact path='/authors/:id' component={AuthorPage} />
-          <Route exact patch='authors/:id/edit' component={AuthorEdit} />
+          <Route exact path='/authors/:id/edit' component={AuthorEdit} />
           <Route exact path='/books/new' component={BookNew} />
           <Route exact path='/books/:id' component={BookPage} />
           <Route exact path='/books/:id/edit' component={BookEdit} />
