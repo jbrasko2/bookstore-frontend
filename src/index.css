@@ -13,3 +13,7 @@ h1, h2, h3, h4 {
 button {
   margin: 6px 12px;
 }
+
+ul {
+  list-style-type: none;
+}
