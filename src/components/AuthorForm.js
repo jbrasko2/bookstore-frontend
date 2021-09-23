@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const AuthorForm = ({ handleSubmit, author }) => {
-  const [name, setName] = useState('')
-  const [dob, setDob] = useState('')
   const date = new Date()
+  const [name, setName] = useState(author ? author.name : null)
+  const [dob, setDob] = useState(
+    author
+      ? author.dob.split('T')[0]
+      : `e.g. ${date.toISOString().split('T')[0]}`
+  )
 
   const onSubmit = event => {
     event.preventDefault()
@@ -21,7 +25,6 @@ const AuthorForm = ({ handleSubmit, author }) => {
             id='name'
             name='name'
             autoComplete='off'
-            placeholder={author ? author.name : null}
             value={name}
             onChange={e => setName(e.target.value)}
           />
@@ -33,7 +36,6 @@ const AuthorForm = ({ handleSubmit, author }) => {
             id='dob'
             name='dob'
             autoComplete='off'
-            placeholder={`e.g. ${date.toISOString().split('T')[0]}`}
             value={dob}
             onChange={e => setDob(e.target.value)}
           />
