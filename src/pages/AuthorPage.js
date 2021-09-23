@@ -32,7 +32,7 @@ const AuthorPage = ({ history }) => {
           })}
         </ul>
         <button onClick={history.goBack}>Back</button>
-        <Link to={`/books/${id}/edit`}><button>Edit</button></Link>
+        <Link to={`/authors/${id}/edit`}><button>Edit</button></Link>
       </>
     )
   }
