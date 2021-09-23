@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
 const BookForm = ({ handleSubmit, book }) => {
   const [title, setTitle] = useState('')
@@ -13,40 +14,50 @@ const BookForm = ({ handleSubmit, book }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <label htmlFor='title'>Title: </label>
-        <input
-          type='text'
-          id='title'
-          name='title'
-          autoComplete='off'
-          placeholder={book ? book.title : null}
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-        <label htmlFor='authorName'>Author: </label>
-        <input
-          type='text'
-          id='authorName'
-          name='authorName'
-          autoComplete='off'
-          placeholder={book ? book.author.name : null}
-          value={authorName}
-          onChange={e => setAuthorName(e.target.value)}
-        />
-        <label htmlFor='year'>Year: </label>
-        <input
-          type='text'
-          id='year'
-          name='year'
-          autoComplete='off'
-          placeholder={book ? book.year : null}
-          value={year}
-          onChange={e => setYear(e.target.value)}
-        />
+        <InputWrapper>
+          <label htmlFor='title'>Title: </label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            autoComplete='off'
+            placeholder={book ? book.title : null}
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <label htmlFor='authorName'>Author: </label>
+          <input
+            type='text'
+            id='authorName'
+            name='authorName'
+            autoComplete='off'
+            placeholder={book ? book.author.name : null}
+            value={authorName}
+            onChange={e => setAuthorName(e.target.value)}
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <label htmlFor='year'>Year: </label>
+          <input
+            type='text'
+            id='year'
+            name='year'
+            autoComplete='off'
+            placeholder={book ? book.year : null}
+            value={year}
+            onChange={e => setYear(e.target.value)}
+          />
+        </InputWrapper>
         <input type='submit' value='Submit' />
       </form>
     </>
   )
 }
+
+const InputWrapper = styled.div`
+  margin-bottom: 24px;
+`
 
 export default BookForm

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import BookForm from '../components/BookForm'
 import axios from 'axios'
+import styled from 'styled-components'
 
 const BookEdit = ({ history }) => {
   const [book, setBook] = useState(null)
@@ -31,12 +32,12 @@ const BookEdit = ({ history }) => {
 
   const renderPage = () => {
     return (
-      <>
-        <h1>Edit {book.title}</h1>
+      <Wrapper>
+        <h1>Edit <i>{book.title}</i></h1>
         <BookForm handleSubmit={submitEdit} book={book} />
         <br />
         <button onClick={history.goBack}>Back</button>
-      </>
+      </Wrapper>
     )
   }
 
@@ -46,5 +47,9 @@ const BookEdit = ({ history }) => {
 
   return book ? renderPage() : renderLoad()
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`
 
 export default BookEdit
