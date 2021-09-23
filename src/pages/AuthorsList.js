@@ -31,7 +31,7 @@ const AuthorsList = () => {
             <li key={author._id}>
               <Link to={'/authors/' + author._id}>
                 {author.name} ({author.books.length}{' '}
-                {author.books.length > 1 ? 'books' : 'book'})
+                {author.books.length === 1 ? 'book' : 'books'})
               </Link>
               <Link to={`/authors/${author._id}/edit`}>
                 <button>Edit</button>
@@ -41,6 +41,7 @@ const AuthorsList = () => {
           )
         })}
       </ul>
+      <Link to={'/authors/new'}>Create New Author</Link>
     </>
   )
 }
