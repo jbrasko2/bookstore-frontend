@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import axios from 'axios'
 
@@ -21,6 +22,7 @@ const BookPage = ({ history }) => {
         <h3>Author: {book.author.name}</h3>
         <h3>Published: {book.year}</h3>
         <button onClick={history.goBack}>Back</button>
+        <Link to={`/books/${id}/edit`}><button>Edit</button></Link>
       </>
     )
   }
