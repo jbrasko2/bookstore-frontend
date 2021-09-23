@@ -20,12 +20,13 @@ const AuthorPage = ({ history }) => {
     return (
       <Wrapper>
         <h1>{author.name}</h1>
-        <h4>Date of Birth: {author.dob.split('T')[0]}</h4>
+        <h3>Date of Birth: {author.dob.split('T')[0]}</h3>
+        <h4 style={{ marginBottom: '-12px' }}>Books</h4>
         <ListWrapper>
           <ul>
             {author.books.map(book => {
               return (
-                <li key={book._id} >
+                <li key={book._id}>
                   <Link to={'/books/' + book._id}>
                     {book.title} ({book.year})
                   </Link>
