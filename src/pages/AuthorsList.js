@@ -49,9 +49,9 @@ const AuthorsList = () => {
               <ListItem key={author._id}>
                 <div>
                   <Link to={'/authors/' + author._id}>
-                    {author.name}, (born {author.dob.split('T')[0]}) -{' '}
-                    {author.books.length}{' '}
-                    {author.books.length === 1 ? 'book' : 'books'}
+                    {author.name} ({author.books.length}{' '}
+                    {author.books.length === 1 ? 'book' : 'books'}) - Born{' '}
+                    {author.dob.split('T')[0]}{' '}
                   </Link>
                 </div>
                 <div>

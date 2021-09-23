@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
 
 const AuthorPage = ({ history }) => {
   const [author, setAuthor] = useState(null)
@@ -17,23 +18,27 @@ const AuthorPage = ({ history }) => {
 
   const renderPage = () => {
     return (
-      <>
+      <Wrapper>
         <h1>{author.name}</h1>
         <h4>Date of Birth: {author.dob.split('T')[0]}</h4>
-        <ul>
-          {author.books.map(book => {
-            return (
-              <li key={book._id}>
-                <Link to={'/books/' + book._id}>
-                  {book.title} ({book.year})
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
+        <ListWrapper>
+          <ul>
+            {author.books.map(book => {
+              return (
+                <li key={book._id} >
+                  <Link to={'/books/' + book._id}>
+                    {book.title} ({book.year})
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </ListWrapper>
         <button onClick={history.goBack}>Back</button>
-        <Link to={`/authors/${id}/edit`}><button>Edit</button></Link>
-      </>
+        <Link to={`/authors/${id}/edit`}>
+          <button>Edit</button>
+        </Link>
+      </Wrapper>
     )
   }
 
@@ -43,5 +48,13 @@ const AuthorPage = ({ history }) => {
 
   return author ? renderPage() : renderLoad()
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`
+
+const ListWrapper = styled.div`
+  margin-right: 32px;
+`
 
 export default AuthorPage

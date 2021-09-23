@@ -44,7 +44,7 @@ const BooksList = () => {
       <h1>Books List</h1>
       <SearchBar handleSubmit={searchBooks} />
       <ListWrapper>
-        <ul style={{ listStyleType: 'none' }}>
+        <ul>
           {books.map(book => {
             return (
               <ListItem key={book._id}>
