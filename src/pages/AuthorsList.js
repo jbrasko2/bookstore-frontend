@@ -13,6 +13,15 @@ const AuthorsList = () => {
     getAuthors()
   }, [])
 
+  const deleteAuthor = async id => {
+    try {
+      await axios.delete(`http://localhost:3000/Authors/${id}`)
+      setAuthors(authors.filter(author => author._id !== id))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <>
       <h1>Authors List</h1>
@@ -24,6 +33,10 @@ const AuthorsList = () => {
                 {author.name} ({author.books.length}{' '}
                 {author.books.length > 1 ? 'books' : 'book'})
               </Link>
+              <Link to={`/authors/${author._id}/edit`}>
+                <button>Edit</button>
+              </Link>
+              <button onClick={() => deleteAuthor(author._id)}>Delete</button>
             </li>
           )
         })}
