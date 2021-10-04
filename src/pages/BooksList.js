@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import SearchBar from '../components/SearchBar'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import SearchBar from '../components/SearchBar';
+import styled from 'styled-components';
 
 const BooksList = () => {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
-      const result = await axios('http://localhost:3000/books')
-      setBooks(result.data)
-    }
-    getBooks()
-  }, [])
+      const result = await axios('http://localhost:3000/books');
+      setBooks(result.data);
+    };
+    getBooks();
+  }, []);
 
   const deleteBook = async id => {
     try {
-      await axios.delete(`http://localhost:3000/books/${id}`)
-      setBooks(books.filter(book => book._id !== id))
+      await axios.delete(`http://localhost:3000/books/${id}`);
+      setBooks(books.filter(book => book._id !== id));
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const searchBooks = query => {
     fetch('http://localhost:3000/books')
@@ -36,8 +36,8 @@ const BooksList = () => {
         )
       )
       .then(bookData => setBooks(bookData))
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+  };
 
   return (
     <Wrapper>
@@ -60,7 +60,7 @@ const BooksList = () => {
                   <button onClick={() => deleteBook(book._id)}>Delete</button>
                 </div>
               </ListItem>
-            )
+            );
           })}
         </ul>
       </ListWrapper>
@@ -75,22 +75,22 @@ const BooksList = () => {
         <button>Authors List</button>
       </Link>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   text-align: center;
-`
+`;
 
 const ListWrapper = styled.div`
   margin: 0 auto;
   width: 600px;
-`
+`;
 
 const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
-export default BooksList
+export default BooksList;

@@ -1,7 +1,7 @@
-import React from 'react'
-import AuthorForm from '../components/AuthorForm'
-import axios from 'axios'
-import styled from 'styled-components'
+import React from 'react';
+import AuthorForm from '../components/AuthorForm';
+import axios from 'axios';
+import styled from 'styled-components';
 
 const AuthorNew = ({ history }) => {
   const submitNew = async ({ name, dob }) => {
@@ -9,13 +9,13 @@ const AuthorNew = ({ history }) => {
       const response = await axios.post(`http://localhost:3000/authors`, {
         name,
         dob,
-      })
-      console.log('Returned Data:', response)
-      history.goBack()
+      });
+      console.log('Returned Data:', response);
+      history.goBack();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -24,11 +24,11 @@ const AuthorNew = ({ history }) => {
       <br />
       <button onClick={history.goBack}>Back</button>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   text-align: center;
-`
+`;
 
-export default AuthorNew
+export default AuthorNew;

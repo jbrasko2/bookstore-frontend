@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const AuthorForm = ({ handleSubmit, author }) => {
-  const date = new Date()
-  const [name, setName] = useState(author ? author.name : null)
+  const date = new Date();
+  const [name, setName] = useState(author ? author.name : null);
   const [dob, setDob] = useState(
     author
       ? author.dob.split('T')[0]
       : `e.g. ${date.toISOString().split('T')[0]}`
-  )
+  );
 
   const onSubmit = event => {
-    event.preventDefault()
-    handleSubmit({ name, dob })
-  }
+    event.preventDefault();
+    handleSubmit({ name, dob });
+  };
 
   return (
     <>
@@ -43,11 +43,11 @@ const AuthorForm = ({ handleSubmit, author }) => {
         <input type='submit' value='Submit' />
       </form>
     </>
-  )
-}
+  );
+};
 
 const InputWrapper = styled.div`
   margin-bottom: 24px;
-`
+`;
 
-export default AuthorForm
+export default AuthorForm;

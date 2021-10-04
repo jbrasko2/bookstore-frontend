@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import styled from 'styled-components';
 
 const AuthorPage = ({ history }) => {
-  const [author, setAuthor] = useState(null)
-  const { id } = useParams()
+  const [author, setAuthor] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const getAuthor = async () => {
-      const result = await axios(`http://localhost:3000/authors/${id}`)
-      setAuthor(result.data)
-    }
-    getAuthor()
-  }, [id])
+      const result = await axios(`http://localhost:3000/authors/${id}`);
+      setAuthor(result.data);
+    };
+    getAuthor();
+  }, [id]);
 
   const renderPage = () => {
     return (
@@ -31,7 +31,7 @@ const AuthorPage = ({ history }) => {
                     <i>{book.title}</i> ({book.year})
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
         </ListWrapper>
@@ -40,22 +40,22 @@ const AuthorPage = ({ history }) => {
           <button>Edit</button>
         </Link>
       </Wrapper>
-    )
-  }
+    );
+  };
 
   const renderLoad = () => {
-    return <p>..loading</p>
-  }
+    return <p>..loading</p>;
+  };
 
-  return author ? renderPage() : renderLoad()
-}
+  return author ? renderPage() : renderLoad();
+};
 
 const Wrapper = styled.div`
   text-align: center;
-`
+`;
 
 const ListWrapper = styled.div`
   margin-right: 32px;
-`
+`;
 
-export default AuthorPage
+export default AuthorPage;

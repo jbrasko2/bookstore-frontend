@@ -1,7 +1,7 @@
-import React from 'react'
-import BookForm from '../components/BookForm'
-import axios from 'axios'
-import styled from 'styled-components'
+import React from 'react';
+import BookForm from '../components/BookForm';
+import axios from 'axios';
+import styled from 'styled-components';
 
 const BookNew = ({ history }) => {
   const submitNew = async ({ title, authorName, year }) => {
@@ -10,13 +10,13 @@ const BookNew = ({ history }) => {
         title,
         authorName,
         year,
-      })
-      console.log('Returned Data:', response)
-      history.goBack()
+      });
+      console.log('Returned Data:', response);
+      history.goBack();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -25,11 +25,11 @@ const BookNew = ({ history }) => {
       <br />
       <button onClick={history.goBack}>Back</button>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   text-align: center;
-`
+`;
 
-export default BookNew
+export default BookNew;

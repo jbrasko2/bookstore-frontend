@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const SearchBar = ({ handleSubmit }) => {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState('');
 
   const handleSearch = e => {
-    e.preventDefault()
-    handleSubmit(query)
-  }
+    e.preventDefault();
+    handleSubmit(query);
+  };
 
   return (
     <form onSubmit={handleSearch}>
@@ -17,7 +17,7 @@ const SearchBar = ({ handleSubmit }) => {
       />
       <input type='submit' value='Search' />
     </form>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

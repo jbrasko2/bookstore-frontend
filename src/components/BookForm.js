@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const BookForm = ({ handleSubmit, book }) => {
-  const [title, setTitle] = useState(book ? book.title : null)
-  const [authorName, setAuthorName] = useState(book ? book.author.name : null)
-  const [year, setYear] = useState(book ? book.year : null)
+  const [title, setTitle] = useState(book ? book.title : null);
+  const [authorName, setAuthorName] = useState(book ? book.author.name : null);
+  const [year, setYear] = useState(book ? book.year : null);
 
   const onSubmit = event => {
-    event.preventDefault()
-    handleSubmit({ title, authorName, year })
-  }
+    event.preventDefault();
+    handleSubmit({ title, authorName, year });
+  };
 
   return (
     <>
@@ -50,11 +50,11 @@ const BookForm = ({ handleSubmit, book }) => {
         <input type='submit' value='Submit' />
       </form>
     </>
-  )
-}
+  );
+};
 
 const InputWrapper = styled.div`
   margin-bottom: 24px;
-`
+`;
 
-export default BookForm
+export default BookForm;
