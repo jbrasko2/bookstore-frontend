@@ -10,7 +10,7 @@ const BookEdit = ({ history }) => {
 
   useEffect(() => {
     const getBook = async () => {
-      const result = await axios(`http://localhost:3000/books/${id}`);
+      const result = await axios(`https://jb-bookstore-server.herokuapp.com/books/${id}`);
       setBook(result.data);
     };
     getBook();
@@ -18,7 +18,7 @@ const BookEdit = ({ history }) => {
 
   const submitEdit = async ({ title, authorName, year }) => {
     try {
-      const response = await axios.patch(`http://localhost:3000/books/${id}`, {
+      const response = await axios.patch(`https://jb-bookstore-server.herokuapp.com/books/${id}`, {
         title,
         authorName,
         year,

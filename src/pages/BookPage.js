@@ -10,7 +10,7 @@ const BookPage = ({ history }) => {
 
   useEffect(() => {
     const getBook = async () => {
-      const result = await axios(`http://localhost:3000/books/${id}`);
+      const result = await axios(`https://jb-bookstore-server.herokuapp.com/books/${id}`);
       setBook(result.data);
     };
     getBook();

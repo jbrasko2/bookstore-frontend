@@ -9,7 +9,7 @@ const BooksList = () => {
 
   useEffect(() => {
     const getBooks = async () => {
-      const result = await axios('http://localhost:3000/books');
+      const result = await axios('https://jb-bookstore-server.herokuapp.com/books');
       setBooks(result.data);
     };
     getBooks();
@@ -17,7 +17,7 @@ const BooksList = () => {
 
   const deleteBook = async id => {
     try {
-      await axios.delete(`http://localhost:3000/books/${id}`);
+      await axios.delete(`https://jb-bookstore-server.herokuapp.com/books/${id}`);
       setBooks(books.filter(book => book._id !== id));
     } catch (err) {
       console.log(err);
@@ -25,7 +25,7 @@ const BooksList = () => {
   };
 
   const searchBooks = query => {
-    fetch('http://localhost:3000/books')
+    fetch('https://jb-bookstore-server.herokuapp.com/books')
       .then(res => res.json())
       .then(data =>
         data.filter(

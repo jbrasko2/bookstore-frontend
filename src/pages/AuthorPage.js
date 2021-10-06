@@ -10,7 +10,7 @@ const AuthorPage = ({ history }) => {
 
   useEffect(() => {
     const getAuthor = async () => {
-      const result = await axios(`http://localhost:3000/authors/${id}`);
+      const result = await axios(`https://jb-bookstore-server.herokuapp.com/authors/${id}`);
       setAuthor(result.data);
     };
     getAuthor();

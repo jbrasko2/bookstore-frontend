@@ -9,7 +9,7 @@ const AuthorsList = () => {
 
   useEffect(() => {
     const getAuthors = async () => {
-      const result = await axios('http://localhost:3000/authors');
+      const result = await axios('https://jb-bookstore-server.herokuapp.com/authors');
       setAuthors(result.data);
     };
     getAuthors();
@@ -17,7 +17,7 @@ const AuthorsList = () => {
 
   const deleteAuthor = async id => {
     try {
-      await axios.delete(`http://localhost:3000/Authors/${id}`);
+      await axios.delete(`https://jb-bookstore-server.herokuapp.com/Authors/${id}`);
       setAuthors(authors.filter(author => author._id !== id));
     } catch (err) {
       console.log(err);
@@ -25,7 +25,7 @@ const AuthorsList = () => {
   };
 
   const searchAuthors = query => {
-    fetch('http://localhost:3000/authors')
+    fetch('https://jb-bookstore-server.herokuapp.com/authors')
       .then(res => res.json())
       .then(data =>
         data.filter(

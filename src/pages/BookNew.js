@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const BookNew = ({ history }) => {
   const submitNew = async ({ title, authorName, year }) => {
     try {
-      const response = await axios.post(`http://localhost:3000/books`, {
+      const response = await axios.post(`https://jb-bookstore-server.herokuapp.com/books`, {
         title,
         authorName,
         year,
