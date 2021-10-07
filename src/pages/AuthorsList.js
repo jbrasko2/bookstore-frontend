@@ -44,12 +44,12 @@ const AuthorsList = () => {
       .catch(err => console.log(err));
   };
 
-  const renderPage = () => {
-    return (
-      <Wrapper>
-        <h1>Authors List</h1>
-        <SearchBar handleSubmit={searchAuthors} />
-        <ListWrapper>
+  return (
+    <Wrapper>
+      <h1>Authors List</h1>
+      <SearchBar handleSubmit={searchAuthors} />
+      <ListWrapper>
+        {loaded ? (
           <ul>
             {authors.map(author => {
               return (
@@ -73,26 +73,22 @@ const AuthorsList = () => {
               );
             })}
           </ul>
-        </ListWrapper>
-        <Link to={'/authors/new'}>
-          <button>Create New Author</button>
-        </Link>
-        <br />
-        <Link to='/'>
-          <button>Home</button>
-        </Link>
-        <Link to='/books'>
-          <button>Books List</button>
-        </Link>
-      </Wrapper>
-    );
-  };
-
-  const renderLoad = () => {
-    return <h3>Loading...</h3>;
-  };
-
-  return loaded ? renderPage() : renderLoad();
+        ) : (
+          <h3>Loading...</h3>
+        )}
+      </ListWrapper>
+      <Link to={'/authors/new'}>
+        <button>Create New Author</button>
+      </Link>
+      <br />
+      <Link to='/'>
+        <button>Home</button>
+      </Link>
+      <Link to='/books'>
+        <button>Books List</button>
+      </Link>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
